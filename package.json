@@ -1,0 +1,33 @@
+{
+  "name": "vuepress-plugin-easy-sidebar",
+  "version": "1.0.0",
+  "description": "a vuepress plugin for generate sidebar",
+  "keywords": [
+    "vuepress",
+    "plugin",
+    "auto",
+    "sidebar"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "rimraf lib && tsc"
+  },
+  "author": "IFreeOvO",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.4",
+    "vuepress-types": "^0.9.4"
+  },
+  "dependencies": {
+    "glob": "^8.0.1",
+    "merge": "^2.1.1"
+  }
+}
