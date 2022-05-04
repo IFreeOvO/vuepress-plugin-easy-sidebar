@@ -1,9 +1,9 @@
 import { Context } from "vuepress-types";
-import { PluginOptions } from "./types";
+import { PluginOptions, Sidebar } from "./types";
 import getSidebar from "./autoSidebar";
 
 module.exports = (options: PluginOptions, ctx: Context) => {
-  let AUTO_SIDEBAR_DATA = {};
+  let AUTO_SIDEBAR_DATA: Sidebar = {};
 
   return {
     name: "vuepress-plugin-code-copy",

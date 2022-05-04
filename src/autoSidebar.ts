@@ -24,13 +24,13 @@ function isCollapsed(collapseList: Array<string>, title: string): boolean {
 
 /**
  *
- * @param children 子节点
- * @param pathArr 被拆解的路径，例如文件路径'/web/js/es6/demo.md'，则pathArr为['js','es6']即路径中间的文件
- * @param resolvePath 已解析的路径，每递归一次，路径加一层，例如文件路径'/web/js/es6/demo.md'，第一次遍历结果'/web/js/', 第一次遍历结果'/web/js/es6/'
- * @param fileName 当前markdown名称
+ * @param params.children 子节点
+ * @param params.pathArr 被拆解的路径，例如文件路径'/web/js/es6/demo.md'，则pathArr为['js','es6']即路径中间的文件
+ * @param params.resolvePath 已解析的路径，每递归一次，路径加一层，例如文件路径'/web/js/es6/demo.md'，第一次遍历结果'/web/js/', 第一次遍历结果'/web/js/es6/'
+ * @param params.fileName 当前markdown名称
+ * @param params.options 插件配置
  * @returns
  */
-
 function findAndCreateNode(params: CreateNodeParams) {
   let { children, pathArr, resolvePath, fileName, options } = params;
   const collapseList = options.collapseList || [];
