@@ -1,6 +1,6 @@
 import { Context } from "vuepress-types";
 import glob from "glob";
-import merge from 'merge'
+import merge from "merge";
 import { PluginOptions, Sidebar, SidebarItem, CreateNodeParams } from "./types";
 
 const IGNORE_FILES: Array<string> = [
@@ -17,7 +17,7 @@ function getNodeIndex(treeNodes: Array<SidebarItem>, title: string): number {
 
 function isCollapsed(collapseList: Array<string>, title: string): boolean {
   if (collapseList.length === 0) {
-    return true
+    return true;
   }
   return collapseList.includes(title);
 }
@@ -32,7 +32,7 @@ function isCollapsed(collapseList: Array<string>, title: string): boolean {
  * @returns
  */
 function findAndCreateNode(params: CreateNodeParams) {
-  let { children, pathArr, resolvePath, fileName, options } = params;
+  const { children, pathArr, resolvePath, fileName, options } = params;
   const collapseList = options.collapseList || [];
   if (pathArr.length === 0) {
     // 遍历到叶子节点时，path一定有值，children一定为空数组
@@ -100,7 +100,7 @@ function findAndCreateNode(params: CreateNodeParams) {
  * @returns
  */
 function listToTree(options: PluginOptions, list: Array<string>): Sidebar {
-  let tree: Sidebar = {};
+  const tree: Sidebar = {};
   for (let i = 0; i < list.length; i++) {
     const markdownPath: string = list[i];
     // 将路径拆分。例如'web/js/es6/demo.md'拆成web,['js','es6'],demo.md
@@ -109,7 +109,7 @@ function listToTree(options: PluginOptions, list: Array<string>): Sidebar {
     const fileName: string = pathArr
       .splice(pathArr.length - 1, 1)[0]
       .replace(".md", "");
-    const categoryKey: string = `/${category}/`;
+    const categoryKey = `/${category}/`;
     if (!(categoryKey in tree)) {
       tree[categoryKey] = [];
     }
@@ -129,9 +129,9 @@ function getSidebar(options: PluginOptions, ctx: Context) {
   const defaultOptions: PluginOptions = {
     ignore: [],
     root: ctx.options.sourceDir,
-    collapseList: []
-  }
-  const pluginOptions: PluginOptions = merge.recursive(defaultOptions, options)
+    collapseList: [],
+  };
+  const pluginOptions: PluginOptions = merge.recursive(defaultOptions, options);
   let sidebar: Sidebar = {};
   const ignore: Array<string> = options.ignore || [];
   const filesList: Array<string> = glob.sync("**/*.md", {

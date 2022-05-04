@@ -1,8 +1,8 @@
 export interface PluginOptions {
-  handleSidebar ?: (filesList: Array<string>, filesTree: Sidebar) => Sidebar; // 排序
-  ignore ?: Array<string>; // 需要忽略的md
-  root ?: string; //文档所在目录的绝对路径默认docs
-  collapseList ?: Array<string>; // 折叠列表，元素为目录title
+  handleSidebar?: (filesList: Array<string>, filesTree: Sidebar) => Sidebar; // 排序
+  ignore?: Array<string>; // 需要忽略的md
+  root?: string; //文档所在目录的绝对路径默认docs
+  collapseList?: Array<string>; // 折叠列表，元素为目录title
 }
 
 export interface SidebarItem {
@@ -14,13 +14,13 @@ export interface SidebarItem {
 }
 
 export interface Sidebar {
-  [key: string]: Array<SidebarItem>
+  [key: string]: Array<SidebarItem>;
 }
 
 export interface CreateNodeParams {
-  children: Array<SidebarItem>
-  pathArr: Array<string>
-  resolvePath: string
-  fileName: string,
-  options: PluginOptions
+  children: Array<SidebarItem>;
+  pathArr: Array<string>;
+  resolvePath: string;
+  fileName: string;
+  options: PluginOptions;
 }
